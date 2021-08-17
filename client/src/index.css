@@ -26,3 +26,12 @@ code {
   margin: 0 auto;
   padding: 0 15px;
 }
+
+ul{
+  margin: 0;
+  padding: 0;
+}
+
+li{
+  list-style: none;
+}

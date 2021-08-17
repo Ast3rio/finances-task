@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const baseURL = 'url';
+export const baseURL = 'http://localhost:4000';
 
 export const combineURLs = (baseURL, url) => {
     return url ?
@@ -13,11 +13,11 @@ export const postRequest = ({url, data, success, setError, headers = {}}) => {
         headers
     })
         .then(res => success(res))
-        .catch(error = setError(error))
+        .catch(error => setError(error))
 }
 
 export const getRequest = ({url, success, setError}) => {
     axios.post(`${combineURLs(baseURL, url)}`)
         .then(res => success(res))
-        .catch(error = setError(error))
+        .catch(error => setError(error))
 }

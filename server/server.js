@@ -70,6 +70,7 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
+
 socketServer.on('connection', (socket) => {
   socket.on('start', () => {
     trackTickers(socket);
