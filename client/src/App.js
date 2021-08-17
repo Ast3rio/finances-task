@@ -10,8 +10,11 @@ import {Title} from "./components/Title/Title";
 
 const App = () => {
 
+    const app = useSelector(state => state.app);
     const tickers = useSelector(state => state.tickers.tickers);
     const dispatch = useDispatch();
+
+    const {loading, error} = app;
 
     useEffect(() => {
         socket.on('connect', () => {
@@ -28,12 +31,14 @@ const App = () => {
     }, [dispatch])
 
     return (
-        <div className={styles.app}>
-            <div className="container">
-                <Title title={'Finance tickers'} />
-                <Tickers tickers={tickers} />
-            </div>
-        </div>
+        loading ? <div>loading...</div> :
+            error ? <div>{error}</div> :
+                <div className={styles.app}>
+                    <div className="container">
+                        <Title title={'Finance tickers'}/>
+                        <Tickers tickers={tickers}/>
+                    </div>
+                </div>
     );
 }
 

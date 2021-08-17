@@ -12,5 +12,7 @@ export const getTime = (date) => {
         `0${new Date(date).getHours()}`
         : new Date(date).getHours()}.${new Date(date).getMinutes() < 10 ?
         `0${new Date(date).getMinutes()}`
-        : new Date(date).getMinutes()}`
+        : new Date(date).getMinutes()}.${new Date(date).getSeconds() <10 ?
+        `0${new Date(date).getSeconds()}`
+        : new Date(date).getSeconds()} `
 }
