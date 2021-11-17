@@ -10,10 +10,13 @@ const different = (percent, newPercent) => {
 
 export const Ticker = ({ticker, price, change_percent, last_trade_time}) => {
 
-    const [newPrice, setNewPrice] = useState(0);
+    const [newPrice, setNewPrice] = useState(0)
     const [active, setActive] = useState(0)
 
-    const percentDifferent = useMemo(() => different(price, newPrice), [price, newPrice])
+    const percentDifferent = useMemo(() => 
+        different(price, newPrice), 
+        [price, newPrice]
+    )
 
     useEffect(() => {
         setNewPrice(price)
@@ -26,16 +29,14 @@ export const Ticker = ({ticker, price, change_percent, last_trade_time}) => {
                 {ticker}
             </div>
             <div className={styles.price}>
-                ${price}
+                {`$ ${price}`}
             </div>
             <div className={styles.date}>
-                {getDate(last_trade_time)}
-                {' '}
-                {getTime(last_trade_time)}
+                {`${getDate(last_trade_time)} ${getTime(last_trade_time)}`}
             </div>
             <div className={`${styles.percent} ${active === 1 && styles.active}`}>
                 <img className={styles.percent_img} src={arrowIco} alt="arrow"/>
-                {change_percent}%
+                {`${change_percent} %`}
             </div>
         </li>
     );

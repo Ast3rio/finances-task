@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from "./Button.module.scss";
+import React from 'react'
+import styles from "./Button.module.scss"
 
 export const Button = ({label, active, onClick}) => {
     return (
@@ -9,6 +9,5 @@ export const Button = ({label, active, onClick}) => {
         >
             {label}
         </button>
-    );
-};
-
+    )
+}
