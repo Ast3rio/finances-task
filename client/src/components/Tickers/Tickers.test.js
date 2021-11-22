@@ -1,10 +1,13 @@
 import React from "react";
-import {Tickers} from "./Tickers";
-import {shallow} from "enzyme";
+import {screen, render} from '@testing-library/react';
+import { Tickers } from './Tickers';
 
-describe('Test <Tickers/>', () => {
-    it('Tickers have renderer correctly', () => {
-        const tickers = shallow(<Tickers />);
-        expect(tickers).toMatchSnapshot();
+describe('Tickers', () => {
+    it('render Tickers component', () => {
+        render(<Tickers />)
+        screen.getByRole('button')
+        screen.debug()
+        screen.getByRole('list')
+        screen.debug()
     })
 })
