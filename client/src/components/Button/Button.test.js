@@ -1,10 +1,11 @@
 import React from "react";
-import {Button} from "./Button";
-import renderer from 'react-test-renderer';
+import {render, screen} from '@testing-library/react';
+import { Button } from "./Button";
 
-describe('Test <Button/>', () => {
-    it('Button have renderer correctly', () => {
-        const button = renderer.create(<Button />).toJSON();
-        expect(button).toMatchSnapshot();
+describe("Button", () => {
+    it('render Button component', () => {
+        render(<Button />)
+        screen.debug()
+        screen.getByRole('button')
     })
 })

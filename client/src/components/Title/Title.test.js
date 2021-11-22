@@ -1,11 +1,10 @@
 import React from "react";
-import {Title} from "./Title";
-import renderer from 'react-test-renderer';
+import { render, screen } from "@testing-library/react";
+import { Title } from './Title';
 
-describe('Test <Title/>', () => {
-    it('Title have renderer correctly', () => {
-        const title = renderer.create(<Title />).toJSON();
-        expect(title).toMatchSnapshot();
+describe('Title', () => {
+    it('render Title component', () => {
+        render(<Title />)
+        screen.debug()
     })
 })
-
