@@ -24,7 +24,6 @@ export const Tickers = ({tickers}) => {
                 active={onSort}
                 onClick={setSort}
             />
-            {'Sort by Price'}
             <ul className={styles.list}>
                 {tickers?.sort((a, b) => onSort && a.price < b.price ? 1 : -1)
                     .map(({ticker, ...tickers}) =>
